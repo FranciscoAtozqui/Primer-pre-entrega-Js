@@ -1,0 +1,30 @@
+
+.navbar-brand{
+    font-size: 25px;
+}
+
+#bg-image-index{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #ffffff;
+    height: 810px;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/bg-image-index.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.container-inicio{
+    margin-bottom: 80px;
+}
+
+.title{
+    font-size: 65px;
+}
+
+.paragraph{
+    font-size: 30px;
+    color: #999999;
+    text-transform: uppercase;
+}
