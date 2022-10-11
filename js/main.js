@@ -23,38 +23,49 @@ function adivinar() {
     return claveIngreso;
 }
 
-//Productos
+//Compra de Productos
+
 if (adivinar()) {
-    let producto = prompt("Los productos que se encuentran en venta son los siguientes:\n1-Camiseta de Argentina \n2-Camiseta de Brasil\n3-Camiseta de Francia\n4-Camiseta de Portugal\nCada producto cuesta $4000\nSeleccione el numero correspondiente\nPresione 5 para finalizar");
-    while (producto != "5") {
-        switch (producto) {
-            case "1":
-                alert("Camiseta de Argentina agregada al carrito correctamente!");
-                break;
+    //OBJETOS
+    const camisetas = [
+        { pais: "argentina", precio: 5000 },
+        { pais: "brasil", precio: 4000 },
+        { pais: "inglaterra", precio: 3000 },
+        { pais: "uruguay", precio: 2800 },
+        { pais: "alemania", precio: 3800 },
+        { pais: "portugal", precio: 3300 },
+    ]
 
-            case "2":
-                alert("Camiseta de Brasil agregada al carrito correctamente!");
-                break;
-
-            case "3":
-                alert("Camiseta de Francia agregada al carrito correctamente!");
-                break;
-
-            case "4":
-                alert("Camiseta de Portugal agregada al carrito correctamente!");
-                break;
-
-            default:
-                alert("Error. Ingresaste un numero incorrecto. Intentalo mas tarde.");
-                break;
-        }
-            
-        producto = prompt("Los productos que se encuentran en venta son los siguientes:\n1-Camiseta de Argentina \n2-Camiseta de Brasil\n3-Camiseta de Francia\n4-Camiseta de Portugal\nCada producto cuesta $4000\nSeleccione el numero correspondiente\nPresione 5 para finalizar");
-    }
+    let compraProducto = prompt("Camisetas en venta:\n1:Argentina $5000\n2:Brasil $4000\n3:Inglaterra $3000\n4:Uruguay $2800\n5:Alemania $3800\n6:Portugal $3300\nIngrese el pais que desee\n\nSOLO SE PERMITE UN PRODUCTO!").toLowerCase();
     
+    //Metodo Find
+    const encontrarPais = camisetas.find((el) => {
+        return el.pais === compraProducto;
+    })
+
+    if (encontrarPais) {
+        let cantidadProducto = parseInt(prompt(`¿Cuantas camisetas de ${compraProducto} deseas comprar?`))
+        let totalProductos = cantidadProducto * camisetas.find((el) => el.pais === compraProducto).precio;
+        alert("Compraste exitosamente. El pago total seria $" + totalProductos);
+    } else {
+        alert("Ingrese el pais correspondiente. Recargue la pagina");
+    }
 } else {
-    alert("Error al ingresar a la tienda, por favor recargue la pagina para volver a intentar.");
-}
+    alert("Error al ingresar a la tienda. Contraseña incorrecta. Recargue la pagina nuevamente.");
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
